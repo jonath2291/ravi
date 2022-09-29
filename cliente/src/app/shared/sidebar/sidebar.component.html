@@ -1,0 +1,16 @@
+<p-sidebar [(visible)]="mostrar_sidebar" [baseZIndex]="10000" [style]="{'width':'400px'}" >
+    <div style="text-align: center;">
+        <img src="./assets/logos/logoravi.png" alt="No hay foto" style=" width: 150px;"> 
+        <h5 style=" font-family:Roboto; font-size: 1rem; margin-top: 0px; ">INDUSTRIAS  RAVI  S.A.</h5>
+
+    </div>
+    <br>
+    <p-panelMenu [model]="items" [style]="{'width':'300px'}" ></p-panelMenu>
+    
+</p-sidebar>
+
+
+
+<p-button type="button" (click)="mostrar_sidebar = true" icon="pi pi-arrow-right"></p-button>
+
+
