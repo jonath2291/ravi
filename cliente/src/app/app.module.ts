@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';//Para cambiar de interf
 import { SharedModule } from './shared/shared.module'; //Los componentes publicos
 import { HashLocationStrategy, LocationStrategy } from '@angular/common'; //Para refrescar en producción
 
+import {FormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +20,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common'; //Para
     AppRoutingModule,
     SharedModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }

@@ -8,6 +8,11 @@ const routes: Routes = [
     loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule)
   },
   {
+    path: 'seguridad',
+    loadChildren: () => import('./paginas/seguridad/seguridad.module').then(m => m.SeguridadModule)
+  },
+  
+  {
     path: '**',
     redirectTo: '/shared/iniciar-sesion',
     pathMatch: 'full'

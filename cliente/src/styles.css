@@ -8,3 +8,19 @@
 
 }
 
+.tarjeta_principal{
+    padding: 50px 135px 200px 135px !important;
+    /* primero arriba, segundo derecha, tercero abajo, cuarto izquierda  */
+}
+
+.p-toolbar {
+    padding: 0.2rem !important;
+}
+
+.p-sidebar-left {
+     border-bottom-right-radius: 50px !important; 
+     border-top-right-radius: 50px !important; 
+}
+.p-sidebar-header {
+    border-top-right-radius: 50px;
+}

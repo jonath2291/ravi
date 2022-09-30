@@ -1,16 +1,13 @@
-<p-sidebar [(visible)]="mostrar_sidebar" [baseZIndex]="10000" [style]="{'width':'400px'}" >
+<p-sidebar [(visible)]="mostrar_sidebar" [baseZIndex]="10000" [style]="{'width':'300px','border-top-right-radius':'10px'}" >
     <div style="text-align: center;">
-        <img src="./assets/logos/logoravi.png" alt="No hay foto" style=" width: 150px;"> 
+        <img src="./assets/logos/logoravi.png" alt="No hay foto" style=" width: 110px;"> 
         <h5 style=" font-family:Roboto; font-size: 1rem; margin-top: 0px; ">INDUSTRIAS  RAVI  S.A.</h5>
 
     </div>
     <br>
-    <p-panelMenu [model]="items" [style]="{'width':'300px'}" ></p-panelMenu>
+    <div class="layout-menu-container">
+        <p-panelMenu [model]="items" [style]="{'width':'250px'}" [multiple]="false" ></p-panelMenu>
+    </div>
     
 </p-sidebar>
-
-
-
-<p-button type="button" (click)="mostrar_sidebar = true" icon="pi pi-arrow-right"></p-button>
-
-
+ <button pButton type="button" icon="pi pi-bars mr-2" iconPos="left" (click)="mostrar_sidebar = true"></button>

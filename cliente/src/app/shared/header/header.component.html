@@ -1,7 +1,45 @@
-<p-menubar [model]="items">
+<!-- <p-menubar [model]="items">
     <div>
         <input type="text" pInputText placeholder="Search">
         <button type="button" pButton label="Logout" icon="pi pi-power-off" style="margin-left:.25em"></button>
     </div>
-</p-menubar>
-<app-sidebar></app-sidebar>
+</p-menubar> -->
+
+
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+        <div style="text-align: center; padding-left: 30px;">
+            <img src="./assets/logos/logoravi.png" alt="No hay foto" style=" width: 100px;"> 
+            <!--  -->
+    
+        </div>
+        <div style="padding-left: 20px; padding-top: 20px; font-size: 1.4rem; font-weight: bold;">
+            SISTEMA DE REPORTING
+        </div>
+        
+    </div>
+
+    <div class="p-toolbar-group-right;" style="padding-right:30px ;">
+        <!-- <p-button icon="pi pi-search" class="mr-2"></p-button>
+        <p-button icon="pi pi-calendar" styleClass="p-button-success mr-2"></p-button> -->
+        
+        <table>
+            <tr>
+                <td>
+                    <div style="font-size: 1.5rem; padding-right: 20px;">
+                        <label style="font-weight: bold;padding-left: 30px;">¡Hola!</label> 
+                        <label style="padding-left: 8px">Jonas</label> 
+                    </div>
+                </td>
+                <td> <app-sidebar></app-sidebar> </td>
+            </tr>
+        </table>
+    </div>
+</p-toolbar>
+
+
+
+
+
+
+

@@ -14,6 +14,24 @@ import {TreeModule} from 'primeng/tree';
 import {SidebarModule} from 'primeng/sidebar';
 import { PanelMenuModule } from 'primeng/panelmenu';
 
+//import { NgModule }      from '@angular/core';
+
+
+//import { ProductService } from './productservice';
+
+import {DataViewModule} from 'primeng/dataview';
+import {PanelModule} from 'primeng/panel';
+import {DropdownModule} from 'primeng/dropdown';
+import {DialogModule} from 'primeng/dialog';
+import {RatingModule} from 'primeng/rating';
+
+
+import { ToastModule } from 'primeng/toast';
+import { MenuModule } from 'primeng/menu';
+import {TableModule} from 'primeng/table';
+
+import { ToolbarModule } from 'primeng/toolbar';
+
 
 
 @NgModule({
@@ -30,7 +48,16 @@ import { PanelMenuModule } from 'primeng/panelmenu';
     InputTextModule,
     TreeModule,
     SidebarModule,
-    PanelMenuModule
+    PanelMenuModule,
+    DataViewModule,
+    PanelModule,
+    DropdownModule,
+    DialogModule,
+    RatingModule,
+    ToastModule,
+    MenuModule,
+    TableModule,
+    ToolbarModule
   ]
 })
 export class PrimengModule { }
