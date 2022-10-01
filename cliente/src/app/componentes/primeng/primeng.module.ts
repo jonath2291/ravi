@@ -31,14 +31,19 @@ import { MenuModule } from 'primeng/menu';
 import {TableModule} from 'primeng/table';
 
 import { ToolbarModule } from 'primeng/toolbar';
+import { TablaExportComponent } from './tabla-export/tabla-export.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    TablaExportComponent
+  ],
   imports: [
     CommonModule,
     PrimengRoutingModule,
+    TableModule,
+    ButtonModule
   ],
   exports: [
     AccordionModule,
@@ -57,7 +62,8 @@ import { ToolbarModule } from 'primeng/toolbar';
     ToastModule,
     MenuModule,
     TableModule,
-    ToolbarModule
+    ToolbarModule,
+    TablaExportComponent
   ]
 })
 export class PrimengModule { }

@@ -11,19 +11,15 @@ import { UsuarioService } from "../../../../servicios/usuario.service";
   styleUrls: ['./lista-usuario.component.css']
 })
 export class ListaUsuarioComponent implements OnInit {
+
   products!: Usuario[];
-
   selectedProducts!: Usuario[];
-
-  cols!: any[];
-
-  exportColumns!: any[];
+  columnas!: any[];
 
   constructor(private servicio_usuario :UsuarioService ) { }
 
   ngOnInit(): void {
     this.IniciarValores();
-
   }
   
   IniciarValores(){
@@ -31,38 +27,15 @@ export class ListaUsuarioComponent implements OnInit {
           this.products = data
           ));
 
-        this.cols = [
-          { field: "code", header: "Code" },
-          { field: "name", header: "Name" },
-          { field: "category", header: "Category" },
-          { field: "quantity", header: "Quantity" }
+        this.columnas = [
+          { field: "code", header: "Codigo" },
+          { field: "name", header: "Nombre" },
+          { field: "category", header: "Categoria" },
+          { field: "quantity", header: "Cantidad" }
         ];
     
-        this.exportColumns = this.cols.map(col => ({
-          title: col.header,
-          dataKey: col.field
-        }));
-        
-
-  
+     
   }
 
-   exportExcel() {
-        // import("xlsx").then(xlsx => {
-        //     const worksheet = xlsx.utils.json_to_sheet(this.products);
-        //     const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
-        //     const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
-        //     this.saveAsExcelFile(excelBuffer, "products");
-        // });
-    }
-
-    saveAsExcelFile(buffer: any, fileName: string): void {
-        // let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
-        // let EXCEL_EXTENSION = '.xlsx';
-        // const data: Blob = new Blob([buffer], {
-        //     type: EXCEL_TYPE
-        // });
-        // FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
-    }
 }
 
