@@ -24,3 +24,12 @@
 .p-sidebar-header {
     border-top-right-radius: 50px;
 }
+
+.p-inputtext {
+    display: block;
+    margin-bottom: .5rem;  
+}
+
+.p-field * {
+display: block;
+}

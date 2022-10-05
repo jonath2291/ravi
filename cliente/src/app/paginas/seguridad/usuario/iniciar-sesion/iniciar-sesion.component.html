@@ -1,1 +1,38 @@
-<p>iniciar-sesion works!</p>
+
+<p-sidebar [(visible)]="  activar_login" [fullScreen]="true" [baseZIndex]="10000">
+
+    <form [formGroup]="form_usuario" (submit)="IniciarSesion()" >
+
+         <!-- <span class="p-float-label">
+            <input id="float-input" type="text" pInputText  formControlName="usuario"  > 
+             <label for="float-input">Username</label>
+        </span>  -->
+<br>
+<br>
+<br>
+        <span class="p-float-label">
+            <input  type="text" pInputText formControlName="usuario"> 
+            <label for="float-input">Correo</label>
+            <!-- <span class="help-block form-error text-danger small" *ngIf="form_usuario.controls['usuario'].errors?.maxlength">
+                Máximo caracteres permitidos 40
+            </span>  -->
+        </span>
+<br>
+<br>
+<br>
+<br>
+
+<div>
+    <p-password formControlName="contrasena" [toggleMask]="true" ></p-password>
+</div>
+
+            
+       
+       
+
+        <button pButton type="submit" label="Success" class="p-button-success"></button>
+      
+    </form>
+</p-sidebar>
+
+<!-- <p-button type="button" (click)="visibleSidebar5 = true" icon="pi pi-th-large"></p-button> -->

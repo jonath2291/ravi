@@ -6,6 +6,9 @@ import { ListaUsuarioComponent } from './usuario/lista-usuario/lista-usuario.com
 // import { IniciarSesionComponent } from './usuario/iniciar-sesion/iniciar-sesion.component';
 import { PrimengModule } from '../../componentes/primeng/primeng.module';
 
+import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { PrimengModule } from '../../componentes/primeng/primeng.module';
   imports: [
     CommonModule,
     SeguridadRoutingModule,
-    PrimengModule
+    PrimengModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SeguridadModule { }

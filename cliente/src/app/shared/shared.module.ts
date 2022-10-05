@@ -8,7 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PrimengModule } from '../componentes/primeng/primeng.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NodeService } from './sidebar/nodeservice';
-
+import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { NodeService } from './sidebar/nodeservice';
   imports: [
     CommonModule,
     SharedRoutingModule,
-    PrimengModule
+    PrimengModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     IniciarSesionComponent,
