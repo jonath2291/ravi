@@ -33,6 +33,7 @@ import {TableModule} from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TablaExportComponent } from './tabla-export/tabla-export.component';
 import {PasswordModule} from 'primeng/password';
+import {CardModule} from 'primeng/card';
 
 
 
@@ -65,7 +66,8 @@ import {PasswordModule} from 'primeng/password';
     TableModule,
     ToolbarModule,
     TablaExportComponent,
-    PasswordModule
+    PasswordModule,
+    CardModule
   ]
 })
 export class PrimengModule { }

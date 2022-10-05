@@ -1,38 +1,47 @@
 
-<p-sidebar [(visible)]="  activar_login" [fullScreen]="true" [baseZIndex]="10000">
+<p-sidebar [(visible)]="  activar_login" [fullScreen]="true" [baseZIndex]="10000" [style]="{'background':'#f0f2f5'}">
+    <div style="padding: 100px;">
 
-    <form [formGroup]="form_usuario" (submit)="IniciarSesion()" >
-
-         <!-- <span class="p-float-label">
-            <input id="float-input" type="text" pInputText  formControlName="usuario"  > 
-             <label for="float-input">Username</label>
-        </span>  -->
-<br>
-<br>
-<br>
-        <span class="p-float-label">
-            <input  type="text" pInputText formControlName="usuario"> 
-            <label for="float-input">Correo</label>
-            <!-- <span class="help-block form-error text-danger small" *ngIf="form_usuario.controls['usuario'].errors?.maxlength">
-                Máximo caracteres permitidos 40
-            </span>  -->
-        </span>
-<br>
-<br>
-<br>
-<br>
-
-<div>
-    <p-password formControlName="contrasena" [toggleMask]="true" ></p-password>
-</div>
-
-            
-       
-       
-
-        <button pButton type="submit" label="Success" class="p-button-success"></button>
-      
-    </form>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-8 col-md-8 col-sm-12" >
+                <div>
+                   <img src="assets\logos\logoravi.png" alt="Ravi Img" style="width: 120px;">
+                </div>
+                <div style="font-size: 24px;">
+                    Sistema de reporting, gestión de cobros, 
+                    calificación crediticia de clientes y cotización de ventas
+                </div>
+            </div >
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div>
+                    <p-card header="Iniciar sesión" styleClass="card-login" >
+                        <form [formGroup]="form_usuario" (submit)="IniciarSesion()" >
+                            <!-- <div class="row justify-content-center align-items-center">
+                                <div class="col-12 pb-3 pt-0 text-start">
+                                   <label>Iniciar sesión</label> 
+                                </div>
+                            </div> -->
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-12">
+                                    <input  type="text" pInputText formControlName="usuario" [style]="{'width':'100%'}" > 
+                                </div>
+                            </div>
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-12 pt-2">
+                                    <p-password [feedback]="false" formControlName="contrasena" [toggleMask]="true" [style]="{'width':'100%'}"></p-password> 
+                                </div>
+                            </div>
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-12">
+                                     <button pButton type="submit" label="Success" class="p-button-success"></button>
+                                </div>
+                            </div>
+                        </form> 
+                    </p-card>
+                </div>
+            </div>
+        </div>
+    </div>
 </p-sidebar>
 
 <!-- <p-button type="button" (click)="visibleSidebar5 = true" icon="pi pi-th-large"></p-button> -->
