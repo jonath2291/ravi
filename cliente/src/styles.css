@@ -17,13 +17,13 @@
     padding: 0.2rem !important;
 }
 
-.p-sidebar-left {
+/* .p-sidebar-left {
      border-bottom-right-radius: 50px !important; 
      border-top-right-radius: 50px !important; 
-}
-.p-sidebar-header {
+} */
+/* .p-sidebar-header {
     border-top-right-radius: 50px;
-}
+} */
 
 .p-inputtext {
     display: block;
@@ -37,3 +37,8 @@ display: block;
 .card-login{
     font-size:1.2rem !important;
 }
+
+.p-inputtext,.p-password {
+    width: 100% !important;
+    height: 50px !important;
+  }

@@ -1,0 +1,15 @@
+.centrar_contenido{
+    width: 60% !important;  
+    margin: 0 auto !important;
+}
+
+.centrar_vertical{
+   padding-top: 20%;
+   padding-right: 5%;
+   padding-left : 5%;
+}
+
+.p-button-success{
+    height: 50px;
+}
+

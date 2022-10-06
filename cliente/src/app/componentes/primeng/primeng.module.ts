@@ -45,7 +45,8 @@ import {CardModule} from 'primeng/card';
     CommonModule,
     PrimengRoutingModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    PasswordModule,
   ],
   exports: [
     AccordionModule,
