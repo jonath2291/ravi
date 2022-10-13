@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api';
+import {MenuItem, MessageService} from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import { IniciarSesionComponent } from 'src/app/paginas/seguridad/usuario/iniciar-sesion/iniciar-sesion.component';
+
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+  providers:[IniciarSesionComponent, MessageService]
 })
 export class SidebarComponent implements OnInit {
   items!: MenuItem[];
   mostrar_sidebar: any;
   constructor(
+    private iniciar_sesion: IniciarSesionComponent,
     private primengConfig: PrimeNGConfig
     ) { }
 
@@ -18,12 +22,10 @@ export class SidebarComponent implements OnInit {
     this.IniciarMenu();
    
   }
-  
-
-
-
-
-
+  CerrarSesion(){
+    console.log('LLego componente cerrar sesion sidebar');
+    this.iniciar_sesion.CerrarSesion();
+  }
   IniciarMenu(){
       this.primengConfig.ripple = true;
       this.items = [

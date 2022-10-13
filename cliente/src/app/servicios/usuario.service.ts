@@ -1,116 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Usuario } from '../modelos/usuario-modelo';
+import { UsuarioModelo } from '../modelos/usuario-modelo';
+
+import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
-
-  productNames: string[] = [
-    "Bamboo Watch", 
-    "Black Watch", 
-    "Blue Band", 
-    "Blue T-Shirt", 
-    "Bracelet", 
-    "Brown Purse", 
-    "Chakra Bracelet",
-    "Galaxy Earrings",
-    "Game Controller",
-    "Gaming Set",
-    "Gold Phone Case",
-    "Green Earbuds",
-    "Green T-Shirt",
-    "Grey T-Shirt",
-    "Headphones",
-    "Light Green T-Shirt",
-    "Lime Band",
-    "Mini Speakers",
-    "Painted Phone Case",
-    "Pink Band",
-    "Pink Purse",
-    "Purple Band",
-    "Purple Gemstone Necklace",
-    "Purple T-Shirt",
-    "Shoes",
-    "Sneakers",
-    "Teal T-Shirt",
-    "Yellow Earbuds",
-    "Yoga Mat",
-    "Yoga Set",
-];
+    baseURL: string = "";
+    token = "";
+    headers_token = {}; 
 
   constructor(private http: HttpClient) { }
-
-    getProductsSmall() {
-      return this.http.get<any>('assets/products-small.json')
-      .toPromise()
-      .then(res => <Usuario[]>res.data)
-      .then(data => { return data; });
+  actualizar_accesos(){
+    this.baseURL = environment.apiUrl+"/auth/";
+    this.token = JSON.parse(localStorage.getItem('accesos')|| '{}').access_token;
+    this.headers_token = { 'headers': { 'content-type': 'aplication/json', 'X-Requested-With': 'XMLHttpRequest','Authorization':'Bearer '+this.token } }; 
+  }
+  post_iniciar_sesion(UsuarioModelo: any): Observable<any>{
+    
+    const body=JSON.stringify(UsuarioModelo);
+    let headers ={ 'headers': { 'content-type': 'aplication/json', 'X-Requested-With': 'XMLHttpRequest' } };
+    console.log("ver usuario ",UsuarioModelo);
+    
+    return this.http.post(environment.apiUrl+"/iniciar_sesion", body,headers);
+  }
+  post_cerrar_sesion(){
+    this.actualizar_accesos();
+    return this.http.get(this.baseURL+'cerrar_sesion',this.headers_token);
   }
 
-  getProducts() {
-      return this.http.get<any>('assets/products.json')
-      .toPromise()
-      .then(res => <Usuario[]>res.data)
-      .then(data => { return data; });
-  }
-
-  getProductsWithOrdersSmall() {
-      return this.http.get<any>('assets/products-orders-small.json')
-      .toPromise()
-      .then(res => <Usuario[]>res.data)
-      .then(data => { return data; });
-  }
-
-  generatePrduct(): Usuario {
-      const product: Usuario =  {
-          id: this.generateId(),
-          name: this.generateName(),
-          description: "Product Description",
-          price: this.generatePrice(),
-          quantity: this.generateQuantity(),
-          category: "Product Category",
-          inventoryStatus: this.generateStatus(),
-          rating: this.generateRating()
-      };
-
-      // product.image = product.name.toLocaleLowerCase().split(/[ ,]+/).join('-')+".jpg";
-      product.image = product.name;
-      return product;
-  }
-
-  generateId() {
-      let text = "";
-      let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-      
-      for (var i = 0; i < 5; i++) {
-          text += possible.charAt(Math.floor(Math.random() * possible.length));
-      }
-      
-      return text;
-  }
-
-  generateName() {
-      return this.productNames[Math.floor(Math.random() * Math.floor(30))];
-  }
-
-  generatePrice() {
-      return Math.floor(Math.random() * Math.floor(299)+1);
-  }
-
-  generateQuantity() {
-      return Math.floor(Math.random() * Math.floor(75)+1);
-  }
-
-  generateStatus() {
-      return this.status[Math.floor(Math.random() * Math.floor(3))];
-  }
-
-  generateRating() {
-      return Math.floor(Math.random() * Math.floor(5)+1);
-  }
 }

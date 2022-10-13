@@ -5,11 +5,11 @@ import { IniciarSesionComponent } from '../paginas/seguridad/usuario/iniciar-ses
 
 const routes: Routes = [
   { 
-    path: 'iniciar-sesion', 
+    path: 'iniciar_sesion', 
     component: IniciarSesionComponent },
   {
     path: '**',
-    redirectTo: '/shared/iniciar-sesion',
+    redirectTo: '/shared/iniciar_sesion',
     pathMatch: 'full'
   }
 ];

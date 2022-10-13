@@ -14,7 +14,7 @@ const routes: Routes = [
   
   {
     path: '**',
-    redirectTo: '/shared/iniciar-sesion',
+    redirectTo: '/shared/iniciar_sesion',
     pathMatch: 'full'
   }
 ];

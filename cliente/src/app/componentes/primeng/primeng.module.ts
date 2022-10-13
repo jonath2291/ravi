@@ -34,12 +34,18 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { TablaExportComponent } from './tabla-export/tabla-export.component';
 import {PasswordModule} from 'primeng/password';
 import {CardModule} from 'primeng/card';
+import { AlertasComponent } from './alertas/alertas.component';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {ProgressBarModule} from 'primeng/progressbar';
+import {BlockUIModule} from 'primeng/blockui';
+
 
 
 
 @NgModule({
   declarations: [
-    TablaExportComponent
+    TablaExportComponent,
+    AlertasComponent
   ],
   imports: [
     CommonModule,
@@ -47,6 +53,7 @@ import {CardModule} from 'primeng/card';
     TableModule,
     ButtonModule,
     PasswordModule,
+    ToastModule
   ],
   exports: [
     AccordionModule,
@@ -68,7 +75,11 @@ import {CardModule} from 'primeng/card';
     ToolbarModule,
     TablaExportComponent,
     PasswordModule,
-    CardModule
+    CardModule,
+    AlertasComponent,
+    ProgressSpinnerModule,
+    ProgressBarModule,
+    BlockUIModule
   ]
 })
 export class PrimengModule { }

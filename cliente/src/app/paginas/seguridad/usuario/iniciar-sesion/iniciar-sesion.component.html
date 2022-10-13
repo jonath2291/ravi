@@ -1,63 +1,67 @@
+<p-toast></p-toast>
 
-<p-sidebar [(visible)]="  activar_login" [fullScreen]="true" [baseZIndex]="10000" >
-    <div class="centrar_contenido" >
-        <div class="centrar_vertical" >
-
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-7 col-md-7 col-sm-12" >
-                    <div class="pt-2">
-                        <div>
+<div>
+    <p-sidebar [(visible)]="activar_login"  [fullScreen]="true" [baseZIndex]="10000"  [showCloseIcon] = "false"  [closeOnEscape] = "false" >
+        <div class="centrar_contenido" >
+            <div class="centrar_vertical" >
+    
+                <div class="grid">
+                    <div class="col-12 lg:col-7 md:col-7 sm:col-12" >
+                        <div class="p-2">
                             <div>
-                            <img src="assets\logos\logoravi.png" alt="Ravi Img" style="width: 170px;">
+                                <div>
+                                <img src="assets\logos\logoravi.png" alt="Ravi Img" style="width: 170px;">
+                                </div>
+                                <div style="font-size: 2rem;">
+                                    Sistema de reporting, gestión de cobros, 
+                                    calificación crediticia de clientes y cotización de ventas
+                                </div>
+    
                             </div>
-                            <div style="font-size: 2rem;">
-                                Sistema de reporting, gestión de cobros, 
-                                calificación crediticia de clientes y cotización de ventas
-                            </div>
-
                         </div>
-                    </div>
-                </div >
-                <div class="col-lg-5 col-md-5 col-sm-12">
-                    <div class="pt-2">
-                        <div>
-                            <p-card styleClass="card-login" >
-                                <form [formGroup]="form_usuario" (submit)="IniciarSesion()" >
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-12">
-                                            <span class="p-float-label">
-                                                <input id="float-input" type="text" pInputText formControlName="usuario" [style]="{'width':'100%','height':'50px'}"> 
-                                                <label for="float-input">Username</label>
-                                            </span>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-12 pt-4">
-                                            <span class="p-float-label">
-                                                <p-password [feedback]="false" formControlName="contrasena" [toggleMask]="true"   styleClass="p-input-icon-right" [style]="{'width':'100%'}"></p-password> 
-                                                <label for="float-input">Password</label>
-                                            </span>
-                                        
-                                        </div>
-                                    </div>
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-12 pt-4">
-                                            <div>
-                                                <button pButton type="submit" label="Iniciar Sesión" class="p-button-success" ></button>
+                    </div >
+                    <div class="col-12 lg:col-5 md:col-5 sm:col-12">
+                        <div class="p-2">
+                            <div>
+                                <p-card styleClass="card-login" >
+                                    <form [formGroup]="form_usuario" (submit)="IniciarSesion()" >
+                                        <div class="align-content-center">
+                                            <div class="col-12">
+                                                <span class="p-float-label">
+                                                    <input id="float-input" type="text" pInputText formControlName="usuario" [style]="{'width':'100%','height':'50px'}"> 
+                                                    <label for="float-input">Username</label>
+                                                </span>
+                                                
                                             </div>
                                         </div>
-                                    </div>
-                                </form> 
-                            </p-card>
+                                        <div class="align-content-center">
+                                            <div class="col-12 pt-3">
+                                                <span class="p-float-label">
+                                                    <p-password [feedback]="false" formControlName="contrasena" [toggleMask]="true"   styleClass="p-input-icon-right" [style]="{'width':'100%'}"></p-password> 
+                                                    <label for="float-input">Password</label>
+                                                </span>
+                                            
+                                            </div>
+                                        </div>
+                                        <div class="align-content-center">
+                                            <div class="col-12 pt-3">
+                                                <div>
+                                                    <button pButton type="submit" label="Iniciar Sesión" class="p-button-success" [disabled]="form_usuario.invalid" ></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                    <br>
+                                </p-card>
+                            </div>
                         </div>
                     </div>
                 </div>
+    
             </div>
-
         </div>
-    </div>
-</p-sidebar>
+    </p-sidebar>
+</div>
 
 
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/modelos/usuario-modelo';
+import { UsuarioModelo } from 'src/app/modelos/usuario-modelo';
 // import { UsuarioService } from "../../../servicios/usuario.service";
 
 @Component({
@@ -9,9 +9,9 @@ import { Usuario } from 'src/app/modelos/usuario-modelo';
 })
 export class TablaExportComponent implements OnInit {
 
-  @Input() lista!: Usuario[];
+  @Input() lista!: UsuarioModelo[];
 
-  @Input() selectedProducts!: Usuario[];
+  @Input() selectedProducts!: UsuarioModelo[];
 
   @Input() cols!: any[];
 

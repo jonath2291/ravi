@@ -42,3 +42,10 @@ display: block;
     width: 100% !important;
     height: 50px !important;
   }
+
+
+  .swal2-container {
+    z-index: 11001 !important;
+  }
+
+

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/modelos/usuario-modelo';
+import { UsuarioModelo } from 'src/app/modelos/usuario-modelo';
 import { UsuarioService } from "../../../../servicios/usuario.service";
 // import * as FileSaver from 'file-saver';
 
@@ -12,8 +12,8 @@ import { UsuarioService } from "../../../../servicios/usuario.service";
 })
 export class ListaUsuarioComponent implements OnInit {
 
-  products!: Usuario[];
-  selectedProducts!: Usuario[];
+  products!: UsuarioModelo[];
+  selectedProducts!: UsuarioModelo[];
   columnas!: any[];
 
   constructor(private servicio_usuario :UsuarioService ) { }
@@ -23,16 +23,16 @@ export class ListaUsuarioComponent implements OnInit {
   }
   
   IniciarValores(){
-        this.servicio_usuario.getProductsSmall().then(data => (
-          this.products = data
-          ));
+        // this.servicio_usuario.getProductsSmall().then(data => (
+        //   this.products = data
+        //   ));
 
-        this.columnas = [
-          { field: "code", header: "Codigo" },
-          { field: "name", header: "Nombre" },
-          { field: "category", header: "Categoria" },
-          { field: "quantity", header: "Cantidad" }
-        ];
+        // this.columnas = [
+        //   { field: "code", header: "Codigo" },
+        //   { field: "name", header: "Nombre" },
+        //   { field: "category", header: "Categoria" },
+        //   { field: "quantity", header: "Cantidad" }
+        // ];
     
      
   }
