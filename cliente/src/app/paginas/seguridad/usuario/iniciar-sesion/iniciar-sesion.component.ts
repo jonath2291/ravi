@@ -98,6 +98,7 @@ export class IniciarSesionComponent implements OnInit {
       //localStorage.removeItem("accesos");
        localStorage.setItem('accesos', JSON.stringify(data)); 
        this.router.navigate(['/seguridad/lista_usuario']); 
+       console.log('Llego el inicio de sesión');
              
       
      },

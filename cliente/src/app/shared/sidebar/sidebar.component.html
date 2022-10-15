@@ -1,17 +1,41 @@
-<p-sidebar [(visible)]="mostrar_sidebar" [baseZIndex]="10001" [style]="{'width':'300px','border-top-right-radius':'0px'}" position="left" [transitionOptions]="'300ms'">
-    <div style="text-align: center;">
-        <img src="./assets/logos/logoravi.png" alt="No hay foto" style=" width: 110px;"> 
-        <h5 style=" font-family:Roboto; font-size: 1rem; margin-top: 0px; ">INDUSTRIAS  RAVI  S.A.</h5>
 
+<p-sidebar [style]="{width:'290px'}" [showCloseIcon]="true" [modal]="true"  [(visible)]="mostrar_sidebar" [baseZIndex]="11">
+
+    <div class="grid">
+        <div class="col-12" style="text-align: center;" >
+            <img src="./assets/logos/logoravi.png" style="width:110px;" >  
+        </div>
     </div>
+        
+    <div class="grid" >
+        <div class="col-12">
+            <div style="text-align: center;">
+                <h5  class="pt-2" style=" font-family:Roboto; font-size: 1rem; margin-top: 0px; ">INDUSTRIAS  RAVI  S.A.</h5>
+            </div>
+        </div>
+    </div>
+
+     <div class="grid" style="text-align: right;padding-bottom: 5px;">
+        <div class="col-12">
+            <i pTooltip="Expandir" tooltipPosition="top" class="pi  pi-arrow-circle-down imgzoom" (click)="expandAll()" style="font-size: 1rem;padding: 2px; color: #A7A8AC;"></i>
+            <i pTooltip="Colapsar" tooltipPosition="top" class="pi pi-arrow-circle-up imgzoom" (click)="collapseAll()" style="font-size: 1rem;padding: 0px;color: #A7A8AC;"></i>
+        </div>
+     </div>
+       
+  
+
+    <p-tree [filter]="true"  filterMode="strict"  [value]="files" selectionMode="single" [(selection)]="selectedFile"
+        (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)">
+    </p-tree>
+
     <br>
-    <div class="layout-menu-container">
-        <p-panelMenu [model]="items" [style]="{'width':'250px'}" [multiple]="false" ></p-panelMenu>
-    </div>
-
-    <div>
-        <button pButton pRipple type="button" label="Cerrar Sesión" (click)="CerrarSesion()" class="p-button-success"></button>
+    <div class="grid">
+        <div class="col-12" style="text-align: center; margin-top: 10px;">
+            <button pButton pRipple type="button" icon="pi pi-power-off" label="Cerrar Sesión" (click)="CerrarSesion()" class="p-button-success"></button>
+        </div>
     </div>
     
+
 </p-sidebar>
- <button pButton type="button" icon="pi pi-bars mr-2" iconPos="left" (click)="mostrar_sidebar = true"></button>
+
+<button pButton type="button" icon="pi pi-bars mr-2" iconPos="left" (click)="AbrirSideBar()"></button>
