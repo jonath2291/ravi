@@ -42,6 +42,21 @@ import {BlockUIModule} from 'primeng/blockui';
 
 
 
+import {CalendarModule} from 'primeng/calendar';
+import {SliderModule} from 'primeng/slider';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {ContextMenuModule} from 'primeng/contextmenu';
+import {FileUploadModule} from 'primeng/fileupload';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {InputNumberModule} from 'primeng/inputnumber';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+
+import { MessagesModule } from 'primeng/messages';
+
 @NgModule({
   declarations: [
     TablaExportComponent,
@@ -53,7 +68,8 @@ import {BlockUIModule} from 'primeng/blockui';
     TableModule,
     ButtonModule,
     PasswordModule,
-    ToastModule
+    ToastModule,
+    MessagesModule
   ],
   exports: [
     AccordionModule,
@@ -79,7 +95,18 @@ import {BlockUIModule} from 'primeng/blockui';
     AlertasComponent,
     ProgressSpinnerModule,
     ProgressBarModule,
-    BlockUIModule
-  ]
+    BlockUIModule,
+    CalendarModule,
+    SliderModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    FileUploadModule,
+    RadioButtonModule,
+    InputNumberModule,
+    ConfirmDialogModule,
+    InputTextareaModule,
+    MessagesModule
+  ],
+  providers: [MessageService,ConfirmationService]
 })
 export class PrimengModule { }

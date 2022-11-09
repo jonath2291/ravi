@@ -1,0 +1,128 @@
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+
+<div class="card" class="p-5" >
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+        </ng-template>
+
+        <ng-template pTemplate="right">
+            <!-- <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload> -->
+            <button type="button" pButton pRipple icon="pi pi-file" (click)="exportCSV()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+            <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="export('xlsx')" class="p-button-success mr-2"  pTooltip="XLS" tooltipPosition="bottom"></button>
+            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="export('pdf')" class="p-button-warning mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+
+        </ng-template>
+    </p-toolbar>
+
+    <p-table #dt [value]="lista_persona" [rows]="20" [paginator]="true" [globalFilterFields]="['id_persona','nombre']" responsiveLayout="scroll"
+        [(selection)]="seleccionarPersona" [rowHover]="true" dataKey="id_persona"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros" [showCurrentPageReport]="true" [loading]="loading" >
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h3 class="m-0">LISTA DE PERSONAS</h3>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Filter" />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <!-- <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th> -->
+         
+           
+                <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+                <th pSortableColumn="apellido_paterno">Apellido Paterno <p-sortIcon field="apellido_paterno"></p-sortIcon></th>
+                <th pSortableColumn="apellido_materno">Apellido Materno<p-sortIcon field="apellido_materno"></p-sortIcon></th>
+                <th pSortableColumn="ci">Cedula de Identidad<p-sortIcon field="ci"></p-sortIcon></th>
+                <th pSortableColumn="celular">Celular<p-sortIcon field="celular"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-persona >
+            <tr>
+                <!-- <td>
+                    <p-tableCheckbox [value]="persona"></p-tableCheckbox>
+                </td> -->
+               
+             
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.apellido_paterno}}</td>
+             
+                <td>{{persona.apellido_materno}}</td>
+                <td>{{persona.ci}}</td>
+                <td>{{persona.celular}}</td>
+               
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(persona)"></button>
+
+                    
+                    
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="eliminarPersona(persona)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+
+
+
+
+
+
+<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Formulario persona" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content" >
+        <form [formGroup]="form_usuario" (submit)="saveProduct()" >
+            
+            <div class="field" hidden="true">
+                <label for="id_persona">id_persona</label>
+                <input id="float-input" type="text" pInputText formControlName="id_persona" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+            <div class="field">
+                <label for="nombre">Nombre</label>
+                <input id="float-input" type="text" pInputText formControlName="nombre" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+            <div class="field">
+                <label for="nombre">Apellido Paterno</label>
+                <input id="float-input" type="text" pInputText formControlName="apellido_paterno" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+            <div class="field">
+                <label for="nombre">Apellido Materno</label>
+                <input id="float-input" type="text" pInputText formControlName="apellido_materno" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+            <div class="field">
+                <label for="nombre">Cedula de Identidad</label>
+                <input id="float-input" type="text" pInputText formControlName="ci" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+            <div class="field">
+                <label for="nombre">Celular</label>
+                <input id="float-input" type="text" pInputText formControlName="celular" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+        
+            <div>
+                <div class="grid">
+                    <div class="col-6 lg:col-6 md:col-5 sm:col-12">
+                        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()" ></button>
+                      
+                    </div>
+                    <div class="col-6 lg:col-6 md:col-5 sm:col-12">
+                        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" type="submit"  [disabled]="form_usuario.invalid" ></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+
+    
+
+
+ 
+</p-dialog>
+
+<!-- <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog> -->

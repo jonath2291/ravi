@@ -167,7 +167,7 @@ export class SidebarComponent implements OnInit {
       menu_aux=menu_aux.replaceAll('ruta_menu_sidebar','routerLink');
       this.files=JSON.parse(menu_aux).children;
       this.mostrar_sidebar=true;
-      this.expandAll();
+      //this.expandAll();
     } 
     
   }

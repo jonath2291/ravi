@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';// Para servicios, conectarse con el backend
 import { AppRoutingModule } from './app-routing.module';//Para cambiar de interfaz.
 import { SharedModule } from './shared/shared.module'; //Los componentes publicos
-import { HashLocationStrategy, LocationStrategy } from '@angular/common'; //Para refrescar en producción
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PdfComponent } from './componentes/pdf/pdf.component'; //Para refrescar en producción
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PdfComponent
   ],
   imports: [
     HttpClientModule,

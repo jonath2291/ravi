@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { SeguridadRoutingModule } from './seguridad-routing.module';
 import { ListaUsuarioComponent } from './usuario/lista-usuario/lista-usuario.component';
+import { ListaRolComponent } from '../seguridad/rol/lista-rol/lista-rol.component';
+import { ListaPersonaComponent } from './persona/lista-persona/lista-persona.component';
 // import { IniciarSesionComponent } from './usuario/iniciar-sesion/iniciar-sesion.component';
 import { PrimengModule } from '../../componentes/primeng/primeng.module';
 
@@ -14,7 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     // IniciarSesionComponent
   
-    ListaUsuarioComponent
+    ListaUsuarioComponent,
+    ListaPersonaComponent,
+    ListaRolComponent
   ],
   imports: [
     CommonModule,
