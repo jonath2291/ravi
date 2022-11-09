@@ -23,16 +23,18 @@ class PersonaController extends Controller
         $lista_personas=DB::select("
                                 select
                                     p.id_persona,
-                                    p.nombres,
+                                    p.nombre,
                                     p.apellido_paterno,
                                     p.apellido_materno,
                                     p.ci,
+                                    p.celular,
                                     p.estado
-                                from segu_tpersona p
-                                inner join users us on us.id_persona = p.id_persona
-                                 where  ".$ids."
+                                from segu.tpersona p
+                                left join users us on us.id_persona = p.id_persona
+
+                                 where  ".$ids." and p.estado = ?
                                
-                            ");
+                            ",["activo"]);
 
         $arrayParametros=[
             'lista_personas'=>$lista_personas
@@ -42,7 +44,7 @@ class PersonaController extends Controller
     }
 
     public function eliminar_persona($id){ ##Revisamos
-        db::update('update segu_tpersona set estado=?, fecha_mod = now() where id_persona=? ',["inactivo",$id]);
+        db::update('update segu.tpersona set estado=?, fecha_mod = now() where id_persona=? ',["inactivo",$id]);
 
         $arrayParametros=[
           'mensaje'=>"ok"
@@ -59,13 +61,13 @@ class PersonaController extends Controller
         if($request->id_persona==0){
             if((bool)$validacion["validacion"]==true){
                 
-                DB::insert('insert into segu_tpersona (nombres,apellido_paterno,apellido_materno,ci,estado,fecha_reg,id_usuario_reg)  values (?,?,?,?,?,now(),?)',[$request->nombres,$request->apellido_paterno,$request->apellido_materno,$request->ci,"activo",$id_usuario]);
+                DB::insert('insert into segu.tpersona (nombre,apellido_paterno,apellido_materno,ci,estado,fecha_reg,id_usuario_reg,celular)  values (?,?,?,?,?,now(),?,?)',[$request->nombre,$request->apellido_paterno,$request->apellido_materno,$request->ci,"activo",$id_usuario,$request->celular]);
             }
         }
         else{
             if((bool)$validacion["validacion"]==true){
-                DB::update('update segu_tpersona set nombres=?,apellido_paterno=?,apellido_materno=?,ci=?,fecha_mod=now(),id_usuario_mod=? where id_persona=? ',
-                [$request->nombres,$request->apellido_paterno,$request->apellido_materno,$request->ci,$id_usuario,$request->id_persona]);                
+                DB::update('update segu.tpersona set nombre=?,apellido_paterno=?,apellido_materno=?,ci=?,fecha_mod=now(),id_usuario_mod=?,celular=? where id_persona=? ',
+                [$request->nombre,$request->apellido_paterno,$request->apellido_materno,$request->ci,$id_usuario,$request->celular,$request->id_persona]);                
             }
         }
 
@@ -86,7 +88,7 @@ class PersonaController extends Controller
 
             $duplicado_ci=DB::select('select 
                                       count(*) as cantidad  
-                                      from segu_tpersona p 
+                                      from segu.tpersona p 
                                       where  TRIM(upper(p.ci))=TRIM(upper(?)) and p.id_persona != ? and p.estado=? ',[$request->ci,$request->id_persona,"activo"]);
             if((int)($duplicado_ci[0]->cantidad)>0){
                 array_push($mensaje,'El campo Cedula de Identidad ya esta registrado');
@@ -99,7 +101,7 @@ class PersonaController extends Controller
 
             $duplicado_ci=DB::select('select 
                                       count(*) as cantidad  
-                                      from segu_tpersona p
+                                      from segu.tpersona p
                                       where  TRIM(upper(p.ci))=TRIM(upper(?))  and p.estado=? ',[$request->ci,"activo"]);
 
             if((int)($duplicado_ci[0]->cantidad)>0){
