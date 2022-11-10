@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\CotizadorController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -55,3 +56,17 @@ Route::group([
     });
 });
 
+Route::group([
+    'prefix' => 'cotizador'
+], function () {
+    
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::get('get_cotizador', [CotizadorController::class, 'get_cotizador']);
+        Route::get('eliminar_cotizador/{id}', [CotizadorController::class, 'eliminar_cotizador']);
+        Route::post('post_cotizador', [CotizadorController::class, 'post_cotizador']);
+        Route::get('enviar_correo', [CotizadorController::class, 'enviar_correo']);
+
+    });
+});

@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';// Para servicios, conec
 import { AppRoutingModule } from './app-routing.module';//Para cambiar de interfaz.
 import { SharedModule } from './shared/shared.module'; //Los componentes publicos
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { PdfComponent } from './componentes/pdf/pdf.component'; //Para refrescar en producción
+import { PdfComponent } from './componentes/pdf/pdf.component';
 
 
 

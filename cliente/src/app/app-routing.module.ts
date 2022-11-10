@@ -11,7 +11,10 @@ const routes: Routes = [
     path: 'seguridad',
     loadChildren: () => import('./paginas/seguridad/seguridad.module').then(m => m.SeguridadModule)
   },
-  
+  {
+    path: 'cotizador',
+    loadChildren: () => import('./paginas/cotizador/cotizador.module').then(m => m.CotizadorModule)
+  },
   {
     path: '**',
     redirectTo: '/shared/iniciar_sesion',

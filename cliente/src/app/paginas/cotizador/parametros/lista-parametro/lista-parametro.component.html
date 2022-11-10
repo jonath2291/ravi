@@ -1,0 +1,79 @@
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+
+<div class="card" class="p-5" >
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <!-- <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2 ml-2" (click)="openNew()"></button> -->
+            <button pButton pRipple label="Enviar Correo" icon="pi pi-send" class="p-button-success mr-2 ml-2" (click)="EnviarCorreo()"></button>
+        </ng-template>
+    </p-toolbar>
+
+
+<p-table [value]="lista_cotizador" >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Codigo</th>
+            <th>Parametro</th>
+            <th>Valor</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-coti>
+        <tr>
+            <td>{{coti.codigo}}</td>
+            <td>{{coti.parametro}}</td>
+            <td>{{coti.valor_parametro}}</td>
+            <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="EditarCotizador(coti)"></button>
+            
+                
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="EliminarCotizador(coti.id_parametro)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+
+
+<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Formulario Cotizador" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content" >
+        <form [formGroup]="form_cotizador" (submit)="GuardarCotizador()" >
+            
+            <div class="field" hidden="true">
+                <label for="id_parametro">id_cotizador</label>
+                <input id="float-input" type="text" pInputText formControlName="id_parametro" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+            <div class="field">
+                <label for="codigo">Codigo</label>
+                <input id="float-input" type="text" pInputText formControlName="codigo" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+            <div class="field">
+                <label for="parametro">Parametro</label>
+                <input id="float-input" type="text" pInputText formControlName="parametro" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+            <div class="field">
+                <label for="valor_parametro">Valor</label>
+                <input id="float-input" type="text" pInputText formControlName="valor_parametro" [style]="{'width':'100%','height':'50px'}"> 
+            </div>
+  
+        
+            <div>
+                <div class="grid">
+                    <div class="col-6 lg:col-6 md:col-5 sm:col-12">
+                        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()" ></button>
+                      
+                    </div>
+                    <div class="col-6 lg:col-6 md:col-5 sm:col-12">
+                        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" type="submit"  [disabled]="form_cotizador.invalid" ></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+
+    
+
+
+ 
+</p-dialog>
