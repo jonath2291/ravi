@@ -92,6 +92,7 @@ class CotizadorController extends Controller
         $validacion=true;
 
         echo exec('cmd /c C:\Users\usuario\Desktop\pruebaejecucion.bat');
+        
         $arrayParametros=[
         'mensaje'=>$mensaje,
         'validacion'=>$validacion
