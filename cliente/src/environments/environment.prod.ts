@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "http://localhost/ravi/ravi/public/api/"
+  apiUrl: "http://192.168.0.102/ravi/ravi/public/api"
 };

@@ -172,8 +172,10 @@ export class ListaParametroComponent implements OnInit {
   }
 
   EnviarCorreo(){
+    this.MostrarLoading();
     this.cotizador_servicio.enviar_correo().subscribe(
       async (data) => {
+        console.log('res ',data);
         this.form_cotizador.reset();
         await this.CerrarLoading();
         this.messageService.add({

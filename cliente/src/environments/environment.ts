@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost/ravi/ravi/public/api"
+  apiUrl: "http://192.168.0.102/ravi/ravi/public/api"
 };
 
 /*

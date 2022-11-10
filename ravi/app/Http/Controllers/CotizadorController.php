@@ -88,11 +88,32 @@ class CotizadorController extends Controller
 
 
     public function enviar_correo(){ ##Revisamos
+
+        $validacion = $this->validar_envio_correo(); 
+        $bat_path = 'D:/etl_test.bat';
+        exec('D:\pdi-ce-9.3\Kitchen.bat  -file="D:\test_job.kjb"', $output);
+        //exec('D:\etl_test.bat 2>&1', $output);
+        //print_r($output);
+        
+        //system ( 'D:\etl_test.bat' );
+        //exec('c:\WINDOWS\system32\cmd.exe /c START D:\etl_test.bat');
+        //echo exec('D:\etl_test.bat');
+        // echo exec('start /B D:\etl_test.bat');
+         //echo exec('cmd /c D:\etl_test.bat');
+        
+        $arrayParametros=[
+            'mensaje'=>$validacion["mensaje"],
+            'validacion'=>$validacion["validacion"],
+            'salida' =>$output
+            ];
+
+        return $arrayParametros;
+    }
+    public function validar_envio_correo(){ ##Revisamos
         $mensaje=[];
         $validacion=true;
 
-        echo exec('cmd /c C:\Users\usuario\Desktop\pruebaejecucion.bat');
-        
+
         $arrayParametros=[
         'mensaje'=>$mensaje,
         'validacion'=>$validacion
@@ -100,6 +121,7 @@ class CotizadorController extends Controller
 
         return $arrayParametros;
     }
+
 
 
 }
