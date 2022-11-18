@@ -68,7 +68,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('localhost', 'localhost'),
             'port' => env('5432', '5432'),
-            'database' => env('db_rav', 'db_rav'),
+            'database' => env('db_ravi', 'db_ravi'),
             'username' => env('postgres', 'postgres'),
             'password' => env('postgres', 'postgres'),
             'charset' => 'utf8',

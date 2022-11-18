@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\CotizadorController;
+use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -70,3 +71,15 @@ Route::group([
 
     });
 });
+
+Route::group([
+    'prefix' => 'producto'
+], function () {
+    
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::get('get_producto', [ProductoController::class, 'get_producto']);
+    });
+});
+

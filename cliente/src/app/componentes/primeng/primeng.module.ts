@@ -57,6 +57,12 @@ import { MessageService } from 'primeng/api';
 
 import { MessagesModule } from 'primeng/messages';
 
+import {TreeTableModule} from 'primeng/treetable';
+
+
+
+
+
 @NgModule({
   declarations: [
     TablaExportComponent,
@@ -105,7 +111,8 @@ import { MessagesModule } from 'primeng/messages';
     InputNumberModule,
     ConfirmDialogModule,
     InputTextareaModule,
-    MessagesModule
+    MessagesModule,
+    TreeTableModule
   ],
   providers: [MessageService,ConfirmationService]
 })

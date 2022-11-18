@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/cotizador/cotizador.module').then(m => m.CotizadorModule)
   },
   {
+    path: 'almacen',
+    loadChildren: () => import('./paginas/almacen/almacen.module').then(m => m.AlmacenModule)
+  },
+  {
     path: '**',
     redirectTo: '/shared/iniciar_sesion',
     pathMatch: 'full'
